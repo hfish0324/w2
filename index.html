@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 2 Gun Program</title>
     <!--PUT YOUR NAME IN THE META TAG FOR AUTHOR-->
-    <meta name="author" content="YOUR NAME GOES HERE">
+    <meta name="author" content="Harrison Fisher">
     <!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
     <meta name="description" content="Small programming assignment using events, variables, functions and conditional logic">
 </head>
@@ -46,12 +46,12 @@
         //Maximum amount of ammo the weapon can hold
         var max = 6
         //Amount of ammo currently loaded into the weapon
-        var currentAmmo = max
+        var current = max
         //Amount of ammo in the character's inventory
         var inventory = 10
 
         //Changes the words between <span> and </span> for each span element
-        triggerDisplay.innerHTML = `AMMO: ${currentAmmo}`
+        triggerDisplay.innerHTML = `AMMO: ${current}`
         reloadDisplay.innerHTML = `INVENTORY: ${inventory}`
 
         /*
@@ -68,14 +68,34 @@
         */
         function shoot(event)
         {
-            currentAmmo--
-            if(currentAmmo<0)
+            current--
+            if(current<0)
             {
-                currentAmmo = 0;
+                current = 0;
             }
-            triggerDisplay.innerHTML = `AMMO: ${currentAmmo}`
+            triggerDisplay.innerHTML = `AMMO: ${current}`
         }
 
+        function reload(event){
+            inventory--
+            if(inventory<0)
+            {
+                inventory=0
+            }
+            if(inventory > 0 && current < 6){
+                current ++
+                triggerDisplay.innerHTML = `AMMO: ${current}`
+                reloadDisplay.innerHTML = `INVENTORY: ${inventory}`
+            }
+            
+        };
+
+
+        reloadButton.addEventListener("click", function(){
+            reload(current, max)
+
+        });
+           
         /*------------------INSTRUCTIONS------------------
         Using the code above as a guide, try to make the reload button work below this comment.
         1. Add an event listener to it that calls a function when clicked
