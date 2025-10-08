@@ -76,7 +76,20 @@
             triggerDisplay.innerHTML = `AMMO: ${current}`
         }
 
-        function reload(event){
+
+           
+        /*------------------INSTRUCTIONS------------------
+        Using the code above as a guide, try to make the reload button work below this comment.
+        1. Add an event listener to it that calls a function when clicked
+        2. Within the function do the following
+            a. Subtract ammo from the inventory
+            b. Add ammo to the currentAmmo
+            d. Stop inventory from going into the negative numbers
+            c. Display the result on in the reloadDisplay by changing it's innerHTML
+            d. EXTRA CHALLENGE: Figure out how much ammo to load. This will require some math based on how much ammo has been expended and the maximum amount ammo the weapon can hold
+        --------------------------------------------------*/
+        
+            function reload(event){
             inventory--
             if(inventory<0)
             {
@@ -95,17 +108,6 @@
             reload(current, max)
 
         });
-           
-        /*------------------INSTRUCTIONS------------------
-        Using the code above as a guide, try to make the reload button work below this comment.
-        1. Add an event listener to it that calls a function when clicked
-        2. Within the function do the following
-            a. Subtract ammo from the inventory
-            b. Add ammo to the currentAmmo
-            d. Stop inventory from going into the negative numbers
-            c. Display the result on in the reloadDisplay by changing it's innerHTML
-            d. EXTRA CHALLENGE: Figure out how much ammo to load. This will require some math based on how much ammo has been expended and the maximum amount ammo the weapon can hold
-        --------------------------------------------------*/
     </script>
 </body>
 </html>
